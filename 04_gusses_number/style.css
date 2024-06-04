@@ -1,0 +1,32 @@
+body{
+    background-color:silver
+    
+}
+
+.wrapper{
+    height: 450px;
+    width: 400px;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:75px;
+    background-color:green
+}
+
+#Guess{
+    font-size:33px;
+    color:yellow;
+}
+
+.guessfield{
+    padding:13px;
+    border:2px solid black
+    
+
+}
+
+.guesssubmit{
+    padding:10px;
+    border-radius:50%;
+    background-color:red
+}

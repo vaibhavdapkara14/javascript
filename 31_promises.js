@@ -1,0 +1,111 @@
+const promiseOne  = new promise(function(resolve, reject) {
+    //Do an async task to resolve
+    //DB calls ,cryptograpy ,network
+    setTimeout(function(){
+        console.log('ASYNC task is complete' )
+        resolve()
+    },1000)
+})
+
+
+
+promiseOne.then(function(){
+    console.log("promise completed");
+
+})
+
+new promise(function(resolve, reject) {
+    setTimeout(function(){
+        console.log('ASYNC task 2');
+        resolve()
+    },1000)
+}).then(function() {
+    console.log("ASYNC 2 resolve");
+})
+
+
+
+
+
+const promiseThree = new promise(function(resolve, reject) {
+    setTimeout(function(){
+        resolve({username: 'foo', password: 'bar'})
+    },1000)
+})
+
+promiseThree.then(function(user){
+    console.log(user);
+
+})
+
+
+
+
+
+
+const promiseFour = new promise(function(resolve, reject) {
+    setTimeout(function(){
+        let error = true
+        if(!error){
+            resolve({username: 'fooo', password: 'baiir'})
+        }else{
+            reject('Error: Someting went wrong')
+        }
+    },1000)
+})
+
+promiseFour.then((user) => {
+console.log(user);
+return user.username
+})
+.then((username) => {
+    console.log(username);
+  })
+  .catch(function(error){
+   console.log(error);
+    })
+    .finally(() => console,log("the promise is either resolve or rejected"))
+
+
+    const promiseFive = new promise(function(resolve, reject) {
+        setTimeout(function(){
+            let error = true
+            if(!error){
+                resolve({username: 'vaibhav', password: 'dapkara'})
+            }else{
+                reject('Error: Someting went wrong')
+            }
+        },1000)
+    });
+
+    async function consumePromiseFive(){
+        try{
+            const response = await promiseFive
+            console.log(response)
+        }catch(error){
+            console.log(error);
+        }
+    }
+
+    consumePromiseFive()
+
+//     async function getAllUser(){
+//         const response =await fetch('https://jsonplaceholder.typicode.com/user')
+//           const data = response.json()
+//           console.log(data);
+
+//     } catch(error){
+//   console.log("E:",error)
+//     }
+
+    //getAllUsers()
+
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then((response ) => {
+        return response.json()
+
+    })
+    .then((data) =>{
+        console.log(data);
+
+    }).catch((error) => cosole.log(error))

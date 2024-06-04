@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Chai or Javascript</h2>
+   <button id="start">start</button>
+       <button id="stop">stop</button>
+</body>
+<script>
+    //const sayDate = function(str) {
+     //   console.log("vaibhav",Date.now());
+    //}
+
+    //const IntervalId = setInterval(sayDate,2000)
+
+    //clearInterval(IntervalId)
+
+    document.querySelector('#start').addEventListener('click',function(){
+        const sayDate = function(){
+            console.log("vaibhav",Date.now)
+        }
+       Intervalid= setInterval(sayDate,2000)
+    })
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearInterval(Intervalid)
+    })
+</script>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML EVENTS</title>
+    <style>
+        body{background-color: black;
+        color: aliceblue;
+     }
+     #images{display: flex;
+        flex-direction: row;
+        padding:20px;}
+    </style>
+</head>
+<body>
+    <h2>Amazing Images</h2>height="200px" 
+    <div>
+        <ul id="images">
+
+            <li><img width="200px"height="200px"  id="photoshop" src="https://www.pexels.com/photo/person-with-smartphone-by-window-18287752/" alt=""></li>
+
+
+            <li><img width="200px"height="200px"  id="japan" src="https://images.pexels.com/photos/21695524/pexels-photo-21695524/free-photo-of-hand-holding-smartphone-and-taking-pictures.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt=""></li>
+
+
+            <li><img width="200px" height="200px" id="River" src="https://images.pexels.com/photos/4703574/pexels-photo-4703574.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt=""></li>  
+
+            <li><img width="200px" height="200px" id="owl" src="https://images.pexels.com/photos/19890789/pexels-photo-19890789/free-photo-of-man-taking-selfie-with-smartphone.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt=""></li>  
+            
+            
+            <li><img width="200px" height="200px" id="vaibhav" src="https://images.pexels.com/photos/9979700/pexels-photo-9979700.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt=""></li>
+
+            <li><a href="https://google.com">Google</a> </li>
+        </ul>
+    </div>
+</body>
+<script>
+     //<!-- document.getElementById("owl").onclick = function() {
+      //  alert('OWL CLICKED')
+    // } -->
+    
+    //attachEvent()
+    //jQuery - on
+
+
+
+
+    document.getElementById("owl").addEventListener("click", function(e) {
+        alert('Owl Clicked Again')
+    })
+
+    //type , imestamp , defaultPrevented
+    // trrget ,toElement ,srcElement , currentTarget,
+    // ClientX , ClientY ,screenX , screenY
+    // altkey , ctrlkey, shiftkey, keycode
+
+    document.getElementById('images').addEventListener('click', function(e) {
+        console.log("CLICKED INSIDE THE ul")
+    },false);
+
+    document.getElementById('owl').addEventListener('click', function(e) {
+        console.log(" owl CLICKED")
+    },false);
+
+    document.getElementById('images').addEventListener('click', function(e) {
+        
+        e.preventDefault();
+        e.stopPropagation();
+        console.log("GOOGLE CLICKED ")
+    },false);
+
+
+    Document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName);
+        if(e.target.tagName === 'IMG'){
+            removeIt = e.target.parentNode
+            removeIt = remove()
+        }
+    });
+
+    removeIt.parentNode.removeChild(removeIt);
+</script>
+</html>
